@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Abel&family=Bebas+Neue&family=Exo+2&family=Kanit:wght@300&family=Oswald&family=Phudu:wght@500&family=Play&family=Poppins:wght@600&family=Prompt:wght@300&display=swap");
+body {
+  background-image: url(https://images.unsplash.com/photo-1693856757394-c1f87367baa3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+form {
+  background-color: rgba(255, 255, 255, 0.7);
+
+  width: 400px;
+  align-items: center;
+  display: flexbox;
+  margin-left: 35%;
+  margin-top: 50px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  font-size: x-large;
+}
+.Heading {
+  text-align: center;
+  padding-bottom: 20px;
+  font-family: "Prompt", sans-serif;
+}
+label {
+  padding-left: 20px;
+  font-family: "Phudu", cursive;
+}
+input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  padding: 8px;
+  font-size: 15px;
+  margin-left: 50px;
+}
+.tc {
+  margin-left: 20px;
+  margin-right: 1px;
+}
+.tpc {
+  margin-left: 1px;
+  margin: 0 0 0 0;
+  font-size: 20px;
+}
+input[type="date"] {
+  width: 160px;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  font-family: "Abel", sans-serif;
+}
+
+.butto {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: transparent 0 0 0 3px, rgba(18, 18, 18, 0.1) 0 6px 20px;
+  box-sizing: border-box;
+  color: #121212;
+  cursor: pointer;
+  display: inline-flex;
+  flex: 1 1 auto;
+
+  font-size: 1.2rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1;
+  margin-left: 150px;
+  outline: none;
+  padding: 1rem 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow 0.2s, -webkit-box-shadow 0.2s;
+  white-space: nowrap;
+  border: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  font-family: "Prompt", sans-serif;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.5);
+  margin-right: 0;
+  vertical-align: middle;
+}
+.tabl {
+  background-color: rgba(255, 255, 255, 0.7);
+
+  text-align: center;
+  align-items: center;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-top: 50px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  font-size: x-large;
+  font-family: "Prompt", sans-serif;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: "Phudu", cursive;
+}
+
+table,
+th,
+td {
+  border: 1px solid #ccc;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  color: black;
+}
+    </style>
+  
+  </head>
+  <body>
+    <form id="registrationForm" action="#" onsubmit="return false;">
+      <h2 class="Heading">Registration Page</h2>
+      <label for="username">Name:</label>
+      <input
+        type="text"
+        id="username"
+        style="margin-left: 100px"
+        placeholder="Enter your name"
+        required
+      /><br /><br />
+
+      <label for="useremailid">Email:</label>
+      <input
+        type="email"
+        id="useremailid"
+        style="margin-left: 100px"
+        placeholder="Enter your email id"
+        required
+      /><br /><br />
+
+      <label for="passwordsaved">Password:</label>
+      <input
+        type="password"
+        id="passwordsaved"
+        placeholder="Enter a strong password"
+        required
+      /><br /><br />
+
+      <label for="dob">Date of Birth:</label>
+      <input
+        type="date"
+        id="dob"
+        style="margin-left: 17px"
+        required
+      /><br /><br />
+
+      <input type="checkbox" id="acceptTerms" value="Yes" required class="tc" />
+      <label for="acceptTerms" class="tpc"
+        >I accept the terms and conditions</label
+      ><br /><br />
+
+      <input
+        class="butto"
+        type="button"
+        value="Submit"
+        onclick="registration()"
+      />
+    </form>
+
+    <div class="tabl">
+      <h2>Entries</h2>
+      <table id="tabledata">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Password</th>
+          <th>Date of Birth</th>
+          <th>Accepted Terms?</th>
+        </tr>
+      </table>
+    </div>
+  </body>
+  <script>
+    function registration() {
+var username = document.getElementById("username").value;
+var useremailid = document.getElementById("useremailid").value;
+var passwordsaved = document.getElementById("passwordsaved").value;
+var dobInput = document.getElementById("dob");
+var acceptTerms = document.getElementById("acceptTerms").value;
+
+var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+if (
+  username === "" ||
+  !emailPattern.test(useremailid) ||
+  passwordsaved === "" ||
+  dobInput.value === "" ||
+  !acceptTerms
+) {
+  alert(
+    "Please fill out all fields correctly and accept the terms and conditions."
+  );
+  return;
+}
+
+var dob = new Date(dobInput.value);
+var currentDate = new Date();
+var age = currentDate.getFullYear() - dob.getFullYear();
+
+if (age < 18 || age > 55) {
+  alert("Your age must be between 18 and 55 years to register.");
+  return;
+}
+
+var userData = {
+  username: username,
+  useremailid: useremailid,
+  passwordsaved: passwordsaved,
+  dob: dobInput.value,
+  acceptTerms: acceptTerms,
+};
+
+if (typeof Storage !== "undefined") {
+  var existingUserData = JSON.parse(localStorage.getItem("userData")) || [];
+  existingUserData.push(userData);
+  localStorage.setItem("userData", JSON.stringify(existingUserData));
+} else {
+  alert(
+    "Local storage is not supported in this browser. Registration data cannot be saved."
+  );
+}
+
+document.getElementById("registrationForm").reset();
+displayUserData();
+}
+
+function displayUserData() {
+var table = document.getElementById("tabledata");
+var userData = JSON.parse(localStorage.getItem("userData")) || [];
+table.innerHTML = "";
+table.insertAdjacentHTML(
+  "beforeend",
+  "<tr><th>Name</th><th>Email</th><th>Password</th><th>Date of Birth</th><th>Age</th><th>Accepted Terms?</th></tr>"
+);
+
+for (var i = 0; i < userData.length; i++) {
+  var user = userData[i];
+  var dob = new Date(user.dob);
+  var currentDate = new Date();
+  var age = currentDate.getFullYear() - dob.getFullYear();
+  table.insertAdjacentHTML(
+    "beforeend",
+    "<tr><td>" +
+      user.username +
+      "</td><td>" +
+      user.useremailid +
+      "</td><td>" +
+      user.passwordsaved +
+      "</td><td>" +
+      user.dob +
+      "</td><td>" +
+      age +
+      " years</td><td>" +
+      user.acceptTerms +
+      "</td></tr>"
+  );
+}
+}
+
+window.onload = function () {
+displayUserData();
+};
+
+  </script>
+</html>
